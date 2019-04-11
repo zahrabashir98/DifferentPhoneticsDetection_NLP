@@ -30,47 +30,51 @@ forms_counter = 0
 parts_found = defaultdict(list) 
 total_counter = 0
 
-for j in range()
-while (flag):
-    total_counter += 1
-    s += split_text[0][i]
+for j in range(len(split_text)):
+    total_counter = 0
+    i = 0
 
-    wc = 0
-    for word in persian_words:
-        wc += 1
-    
-        if s == word and s not in visited:
-            visited.append(s)
-            parts_found[forms_counter].append(s)
-            print(parts_found[1])
-            if i == (len(split_text[0])-1):
-                # print("tahe jomle")
-                # flag = False
-                print(forms_counter)
-                print(parts_found)
-                for i in range(forms_counter-1):
-                    if parts_found[forms_counter] == parts_found[i]:
-                        flag = False
-                # if parts_found[forms_counter] not in 
-                forms_counter += 1
+    # print("comes here")
+    while (flag):
+        total_counter += 1
+        s += split_text[j][i]
+        print(s)
+        wc = 0
+        for word in persian_words:
+            wc += 1
+        
+            if s == word and s not in visited:
+                visited.append(s)
+                parts_found[forms_counter].append(s)
+                print(parts_found[1])
+                if i == (len(split_text[j])-1):
+                    # print("tahe jomle")
+                    # flag = False
+                    print(forms_counter)
+                    print(parts_found)
+                    for i in range(forms_counter-1):
+                        if parts_found[forms_counter] == parts_found[i]:
+                            flag = False
+                    forms_counter += 1
+                    s = ""
+                    i = 0
+                    break
                 s = ""
-                i = 0
-                break
-            s = ""
 
-        else:
-            # print("miad to else")
-            
-            if i == (len(split_text[0])-1) and wc == len(persian_words):
+            else:
+                # print("miad to else")
                 
-                parts_found[forms_counter] = []
-                s = ""
-                i = -1
-    if total_counter > 200 :
-        flag = False
+                if i == (len(split_text[j])-1) and wc == len(persian_words):
+                    
+                    parts_found[forms_counter] = []
+                    s = ""
+                    i = -1
+        if total_counter > 200 :
+            print("here")
+            flag = False
 
 
-    i += 1
-
+        i += 1
+print("na comes here")
 print(visited)
 print(parts_found)
