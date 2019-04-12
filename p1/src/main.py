@@ -1,5 +1,16 @@
 import csv
+import sys
 from collections import defaultdict
+# import datamapping
+
+# here is the function which assembles all phonetics of input
+def phoneticGenerator(sentence):
+    phonetic = ""
+    for item in sentence:
+        for key, value in dic.items():
+            if key == item :
+                phonetic += value
+    return phonetic
 
 
 # this function checks wether the input word is in dataset or not
@@ -11,12 +22,12 @@ def is_in_dataset(word):
             return True
     return False
 
+
 # here is the function which first calls "breakWord"
 def input(string):
     print("oomad too in")
     breakWord(string, len(string), "")
 
-  
 
 # this is my recursive function
 def breakWord( string,  n,  result):
@@ -26,7 +37,6 @@ def breakWord( string,  n,  result):
         prefix = string[0:i]
 
         if (is_in_dataset(prefix)) :
-
             # if reached end of sentence
             if (i == n):
                 result += prefix
@@ -39,22 +49,33 @@ def breakWord( string,  n,  result):
 
 
 if __name__ == '__main__':
-    f = open("b.txt", "w")
-    all_phonetics = []
 
+    f = open("../out/phonetics_states.txt", "w")
+    all_phonetics = []
+    word_phonetic_map = {}
+    dic = {}
     with open("../in/Entries.csv") as csvfile:
         readCSV = csv.reader(csvfile, delimiter=',')
-        # print(readCSV)
         for row in readCSV:
+            # i have a dictionary with keys of persian_words and values of phonetics
+            dic[row[1]] = row[0]
             i = 0
             for each_data in row:
                 if i%5 == 0:
                     all_phonetics.append(each_data)
                 
                 i += 1
+
+    sentence = ""
+    with open("../in/tests/%s.txt"%sys.argv[1]) as inp:
+        input_data = inp.readlines()
+        # notice you should't have any extra line in your input
+        for line in input_data:
+            sentence = line.rstrip('\n').split(" ")
+            
+    phonetic = phoneticGenerator(sentence)
+
+    input(phonetic)
+
+
     
-    # input("bedunerang'AsemAnzeSt'ast")
-    input("bAqbAn'AnbAqCerAnegAhkard")
-    # input("bAbAbA'AbAdAnjAleb'ast")
-    # input("mAdAm")
-    # input("‌bAqbAn'AnbAqCeranegAhkard")
