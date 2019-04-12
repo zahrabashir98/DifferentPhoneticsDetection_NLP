@@ -61,5 +61,7 @@ with open("../in/Entries.csv") as csvfile:
             
             i += 1
 
-wordBreak("bAqbAnAnbAqCerAnegAhkard")
-# wordBreak("‌bAqbAnAnbAqCeranegAhkard")
+wordBreak("bAqbAn'AnbAqCerAnegAhkard")
+# wordBreak("bAbAbA'AbAdAnjAleb'ast")
+# wordBreak("mAdAm")
+# wordBreak("‌bAqbAn'AnbAqCeranegAhkard")
