@@ -1,7 +1,12 @@
 import csv
 import sys
 from collections import defaultdict
-# import datamapping
+
+#######################################################################
+###                                                                 ###
+###   Notice running it only with python3 (not any lower version)   ###
+###                                                                 ###
+#######################################################################
 
 # here is the function which assembles all phonetics of input
 def phoneticGenerator(sentence):
@@ -25,7 +30,6 @@ def is_in_dataset(word):
 
 # here is the function which first calls "breakWord"
 def input(string):
-    print("oomad too in")
     breakWord(string, len(string), "")
 
 

@@ -33,5 +33,7 @@ def dataMapping():
         print(answers[value])
         f.write(str(answers[value]))
         f.write("\n")
+    print ()
+    print("you can see the result in ../out/final_answer.txt ")
 
 dataMapping()
