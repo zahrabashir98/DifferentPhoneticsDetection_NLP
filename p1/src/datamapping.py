@@ -1,8 +1,5 @@
-
-
 from collections import defaultdict
 import csv
-# rstrip('\n')
 
 
 data = []
@@ -19,9 +16,7 @@ with open("../in/Entries.csv") as csvfile:
     for row in readCSV:
         dic[row[0]] = row[1]
 
-
 answers = defaultdict(list) 
-
 
 f = open("anss.txt", "w") 
 counter = 0
@@ -33,12 +28,7 @@ for d in data :
                 answers[counter].append(value)
     counter += 1
 
-# print(answers)
 for value in answers:
-    # print(value)
     print(answers[value])
     f.write(str(answers[value]))
     f.write("\n")
-# # print(dic)
-# for i in dic:
-#     f.write(i)
