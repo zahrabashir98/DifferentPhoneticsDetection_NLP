@@ -80,6 +80,3 @@ if __name__ == '__main__':
     phonetic = phoneticGenerator(sentence)
 
     input(phonetic)
-
-
-    
