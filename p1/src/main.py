@@ -11,7 +11,7 @@ s = ""
 persian_words = []
 i = 0
 step = 1
-with open("../in/ha.csv") as csvfile:
+with open("../in/Entries.csv") as csvfile:
     readCSV = csv.reader(csvfile, delimiter=',')
     # print(readCSV)
     for row in readCSV:
@@ -22,7 +22,10 @@ with open("../in/ha.csv") as csvfile:
             i += 1
 split_text = in_text.split()
 
+print(persian_words)
 
+f = open("a.txt", "a")    
+f.write(str(persian_words))
 visited = []
 flag = True
 i = 0
@@ -38,7 +41,7 @@ for j in range(len(split_text)):
     while (flag):
         total_counter += 1
         s += split_text[j][i]
-        print(s)
+        # print(s)
         wc = 0
         for word in persian_words:
             wc += 1
@@ -62,19 +65,20 @@ for j in range(len(split_text)):
                 s = ""
 
             else:
-                # print("miad to else")
                 
                 if i == (len(split_text[j])-1) and wc == len(persian_words):
                     
                     parts_found[forms_counter] = []
                     s = ""
                     i = -1
-        if total_counter > 200 :
-            print("here")
+        # print(total_counter)
+        # print(s)
+        if total_counter > 1000 :
+            # print("here")
             flag = False
 
 
         i += 1
-print("na comes here")
-print(visited)
-print(parts_found)
+# print("na comes here")
+# print(visited)
+# print(parts_found)
